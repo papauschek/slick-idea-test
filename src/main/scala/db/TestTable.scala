@@ -13,7 +13,7 @@ object Rows extends TableQuery(new Rows(_)) {
 
   def test : Query[Column[Int], Int] = {
     (for {
-      r <- Rows
+      r <- Rows // r should be [Rows], but it's [Any]
       id = r.id // commenting this out fixes the problem
     } yield(r.id))
   }
